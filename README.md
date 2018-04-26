@@ -34,7 +34,9 @@ This app uses a [webpack config](webpack.config.js) for building two separate fi
 
 To run with docker:
 
-  docker image build -t node-web-app .
-  docker run -p 9090:9090 node-web-app
+```
+docker image build -t node-web-app .
+docker run -p 9090:9090 node-web-app
+```
 
 To see the web app and try it out, visit: https://localhost:9090
