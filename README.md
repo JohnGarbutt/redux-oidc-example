@@ -30,11 +30,11 @@ Please note that the server is running under TLS and therefore you need to visit
 ### Configuration
 This app uses a [webpack config](webpack.config.js) for building two separate files, `index.html` for the app & `silent_renew.html` for silent renew. It uses [express](https://github.com/expressjs/express) as a server with this [config](server.prod.js) to allow the routing for both HTML files to work.
 
-# Usage with Docker
+## Usage with Docker
 
-docker image build -t node-web-app .
-docker run -p 9090:9090 node-web-app
+To run with docker:
 
-To see the web app and try it out, visit:
+  docker image build -t node-web-app .
+  docker run -p 9090:9090 node-web-app
 
-https://localhost:9090
+To see the web app and try it out, visit: https://localhost:9090
