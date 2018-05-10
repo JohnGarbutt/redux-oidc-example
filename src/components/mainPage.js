@@ -34,6 +34,8 @@ class MainPage extends React.Component {
   render() {
     const { user, channels } = this.props;
 
+    var ReactS3Uploader = require('react-s3-uploader');
+
     return (
       <div style={styles.root}>
         <div style={styles.title}>
@@ -61,6 +63,17 @@ class MainPage extends React.Component {
         >
           Logout
         </button>
+
+        <ReactS3Uploader
+          preprocess={this.onUploadStart}
+          onSignedUrl={this.onSignedUrl}
+          onProgress={this.onUploadProgress}
+          onError={this.onUploadError}
+          onFinish={this.onUploadFinish}
+          signingUrl="/s3/sign"
+          accept="image/*"
+          uploadRequestHeaders={{ 'x-amz-acl': 'private' }}
+          />
       </div>
     );
   }

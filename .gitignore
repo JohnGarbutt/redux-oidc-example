@@ -39,3 +39,6 @@ node_modules
 # yarn files
 package-lock.json
 yarn.lock
+
+# aws credentials
+.env

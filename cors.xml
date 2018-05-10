@@ -1,0 +1,28 @@
+<CORSConfiguration>
+<CORSRule>
+    <ID>example.com: Allow PUT POST with AWS S3 JS
+    SDK</ID>
+    <AllowedOrigin>*</AllowedOrigin>
+    <AllowedMethod>PUT</AllowedMethod>
+    <AllowedMethod>POST</AllowedMethod>
+    <AllowedHeader>Origin</AllowedHeader>
+    <AllowedHeader>Content-Length</AllowedHeader>
+    <AllowedHeader>Content-Type</AllowedHeader>
+    <AllowedHeader>Content-MD5</AllowedHeader>
+    <AllowedHeader>X-Amz-User-Agent</AllowedHeader>
+    <AllowedHeader>X-Amz-Date</AllowedHeader>
+    <AllowedHeader>x-amz-acl</AllowedHeader>
+    <AllowedHeader>Authorization</AllowedHeader>
+    <ExposeHeader>ETag</ExposeHeader>
+    <MaxAgeSeconds>1800</MaxAgeSeconds>
+</CORSRule>
+<CORSRule>
+    <ID>example.com: Allow GET with AWS S3 JS SDK</ID>
+    <AllowedOrigin>*</AllowedOrigin>
+    <AllowedMethod>GET</AllowedMethod>
+    <AllowedMethod>HEAD</AllowedMethod>
+    <AllowedHeader>*</AllowedHeader>
+    <ExposeHeader>ETag</ExposeHeader>
+    <MaxAgeSeconds>1800</MaxAgeSeconds>
+</CORSRule>
+</CORSConfiguration>

@@ -36,7 +36,18 @@ To run with docker:
 
 ```
 docker image build -t node-web-app .
-docker run -p 9090:9090 node-web-app
+docker run -p 9090:9090 --env-file .env node-web-app
 ```
+
+This is where .evn contains your AWS details, such as:
+```
+AWS_ACCESS_KEY_ID=key-id
+AWS_SECRET_ACCESS_KEY=key
+AWS_SERVER=localhost
+AWS_PORT=7480
+```
+
+An example cors policy that needs to be set on the bucket you are
+uploading to is given in cors.xml
 
 To see the web app and try it out, visit: https://localhost:9090
