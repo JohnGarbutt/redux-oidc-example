@@ -38,7 +38,7 @@ class MainPage extends React.Component {
         <button
           onClick={event => {
             event.preventDefault();
-            alert(JSON.stringify(this.props.user, null, 2));
+            alert(JSON.stringify(this.props.user['profile'], null, 2));
           }}
         >
           Show user info
