@@ -14,25 +14,11 @@ class MainPage extends React.Component {
     });
   }
 
-  // the channels list
-  get channels() {
-    const { channels } = this.props;
-    return (
-      <ul style={styles.list}>
-        {channels.map(channel => (
-          <li key={channel.id} style={styles.li}>
-            <ChannelInfo channel={channel} />
-          </li>
-        ))}
-      </ul>
-    );
-  }
-
   // display the current user
   showUserInfoButtonClick(event) {}
 
   render() {
-    const { user, channels } = this.props;
+    const { user } = this.props;
 
     var ReactS3Uploader = require('react-s3-uploader');
 
@@ -40,13 +26,15 @@ class MainPage extends React.Component {
       <div style={styles.root}>
         <div style={styles.title}>
           <h3>Welcome, {user ? user.profile.name : "Mister Unknown"}!</h3>
-          <p>Here are some of your YouTube channel subscriptions:</p>
         </div>
-        {channels.length > 0 ? (
-          this.channels
-        ) : (
-          <i>You have no subscriptions.</i>
-        )}
+        <button
+          onClick={event => {
+            event.preventDefault();
+            alert(this.props.user['access_token']);
+          }}
+        >
+          Get Access Token
+        </button>
         <button
           onClick={event => {
             event.preventDefault();
@@ -68,8 +56,14 @@ class MainPage extends React.Component {
           preprocess={this.onUploadStart}
           onSignedUrl={this.onSignedUrl}
           onProgress={this.onUploadProgress}
-          onError={this.onUploadError}
-          onFinish={this.onUploadFinish}
+          onFinish={event => {
+              alert("Uploaded file as: " + event.fileKey);
+              userManager.removeUser();
+          }}
+          onError={msg => {
+              alert(msg);
+              userManager.removeUser();
+          }}
           signingUrl="/s3/sign"
           accept="image/*"
           uploadRequestHeaders={{ 'x-amz-acl': 'private' }}
