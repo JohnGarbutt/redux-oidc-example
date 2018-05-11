@@ -57,12 +57,12 @@ class MainPage extends React.Component {
           onSignedUrl={this.onSignedUrl}
           onProgress={this.onUploadProgress}
           onFinish={event => {
-              alert("Uploaded file as: " + event.fileKey);
+              var url = "s3/img/" + event.fileKey;
               userManager.removeUser();
+              window.location.replace(url)
           }}
           onError={msg => {
               alert(msg);
-              userManager.removeUser();
           }}
           signingUrl="/s3/sign"
           accept="image/*"
