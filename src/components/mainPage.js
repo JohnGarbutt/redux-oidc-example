@@ -3,15 +3,10 @@ import { connect } from "react-redux";
 import userManager from "../utils/userManager";
 import { loadSubscriptionsStart, loadSubscriptionsSuccess } from "../actions";
 import ChannelInfo from "./channelInfo";
-import { loadChannels } from "../utils/api";
 
 class MainPage extends React.Component {
   // load the subscriptions
   componentWillMount() {
-    this.props.dispatch(loadSubscriptionsStart());
-    loadChannels().then(result => {
-      this.props.dispatch(loadSubscriptionsSuccess(result));
-    });
   }
 
   // display the current user
